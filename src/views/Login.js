@@ -1,18 +1,27 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
-const Login = props => {
-    return (
+const Login = (props) => {
+  return (
+    <div>
+      <h1>Please login</h1>
+      <form>
+        <label>
+          <p>Username</p>
+        </label>
+        <input type="text" />
+        <label>
+          <p>Password</p>
+        </label>
+        <input type="password" />
         <div>
-            <form>
-                
-            </form>
+          <button type="submit">Login</button>
         </div>
-    )
-}
+      </form>
+    </div>
+  );
+};
 
-Login.propTypes = {
+Login.propTypes = {};
 
-}
-
-export default Login
+export default Login;
