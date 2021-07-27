@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-const Login = (props) => {
+const Login = () => {
+  const [username, setUsername] = useState(null);
+  const [password, setPassword] = useState(null);
+
   return (
     <div>
       <h1>Please login</h1>
@@ -9,11 +12,19 @@ const Login = (props) => {
         <label>
           <p>Username</p>
         </label>
-        <input type="text" />
+        <input
+          placeholder="Username/email"
+          type="text"
+          onChange={(e) => setUsername(e.target.value)}
+        />
         <label>
           <p>Password</p>
         </label>
-        <input type="password" />
+        <input
+          placeholder="Password"
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <div>
           <button type="submit">Login</button>
         </div>

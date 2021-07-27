@@ -7,5 +7,10 @@ test("renders login page", () => {
   const password = screen.getByText(/Password/i);
 
   expect(username).toBeInTheDocument();
+  expect(screen.getByRole("textbox")).toBeInTheDocument();
+  expect(screen.getByPlaceholderText("Username/email")).toBeInTheDocument();
+
   expect(password).toBeInTheDocument();
+  expect(screen.getByRole("textbox")).toBeInTheDocument();
+  expect(screen.getByPlaceholderText("Password")).toBeInTheDocument();
 });
