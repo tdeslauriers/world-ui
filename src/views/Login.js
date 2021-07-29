@@ -1,14 +1,22 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { login } from "../api/userApi";
 
-const Login = () => {
-  const [username, setUsername] = useState(null);
-  const [password, setPassword] = useState(null);
+const Login = ({ setToken }) => {
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const token = await login({ username, password });
+    setToken(token);
+    console.log(token);
+  };
 
   return (
     <div>
       <h1>Please login</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>
           <p>Username</p>
         </label>
@@ -33,6 +41,8 @@ const Login = () => {
   );
 };
 
-Login.propTypes = {};
+Login.propTypes = {
+  setToken: PropTypes.func.isRequired,
+};
 
 export default Login;
